@@ -40,7 +40,10 @@ import net.minecraftforge.fml.common.gameevent.InputEvent;
 import net.minecraftforge.fml.common.gameevent.PlayerEvent;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
+import com.github.ustc_zzzz.fmltutor.FMLTutor;
 import com.github.ustc_zzzz.fmltutor.achievement.AchievementLoader;
 import com.github.ustc_zzzz.fmltutor.block.BlockLoader;
 import com.github.ustc_zzzz.fmltutor.client.KeyLoader;
@@ -91,7 +94,8 @@ public class EventLoader
     {
         if (!event.world.isRemote)
         {
-            event.entityPlayer.addChatComponentMessage(new ChatComponentText(event.pos.toString()));
+            Logger logger = LogManager.getLogger(FMLTutor.MODID);
+            logger.info("PlayerInteract: {}: {}", event.entityPlayer.getName(), event.pos.toString());
         }
     }
 
