@@ -9,7 +9,8 @@ item.redstoneBoots.name=红石靴子
 
 item.bucketMercury.name=水银桶
 
-tile.grassBlock.name=草块
+tile.grassBlock.dry.name=草块
+tile.grassBlock.wet.name=湿草块
 tile.fluidMercury.name=水银
 
 itemGroup.tabFMLTutor=FML教程

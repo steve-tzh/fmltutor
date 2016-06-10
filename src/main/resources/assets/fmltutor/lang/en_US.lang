@@ -9,7 +9,8 @@ item.redstoneBoots.name=Redstone Boots
 
 item.bucketMercury.name=Mercury Bucket
 
-tile.grassBlock.name=Grass Block
+tile.grassBlock.dry.name=Grass Block
+tile.grassBlock.wet.name=Wet Grass Block
 tile.fluidMercury.name=Mercury
 
 itemGroup.tabFMLTutor=FML Tutor

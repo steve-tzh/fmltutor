@@ -1,5 +1,10 @@
 {
     "variants": {
-        "normal": { "model": "fmltutor:grass_block" }
+        "facing=x,wet=true": { "model": "fmltutor:grass_block_side_wet", "y": 90 },
+        "facing=x,wet=false": { "model": "fmltutor:grass_block_side", "y": 90 },
+        "facing=y,wet=true": { "model": "fmltutor:grass_block_wet" },
+        "facing=y,wet=false": { "model": "fmltutor:grass_block" },
+        "facing=z,wet=true": { "model": "fmltutor:grass_block_side_wet" },
+        "facing=z,wet=false": { "model": "fmltutor:grass_block_side" }
     }
 }

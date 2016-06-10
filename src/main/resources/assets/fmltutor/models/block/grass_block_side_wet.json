@@ -1,0 +1,7 @@
+{
+    "parent": "block/column_side",
+    "textures": {
+        "end": "fmltutor:blocks/grass_block_wet",
+        "side": "fmltutor:blocks/grass_block_side_wet"
+    }
+}

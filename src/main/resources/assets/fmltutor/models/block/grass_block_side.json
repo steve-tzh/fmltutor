@@ -1,5 +1,5 @@
 {
-    "parent": "block/cube_column",
+    "parent": "block/column_side",
     "textures": {
         "end": "fmltutor:blocks/grass_block",
         "side": "fmltutor:blocks/grass_block_side"

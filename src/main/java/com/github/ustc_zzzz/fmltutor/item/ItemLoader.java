@@ -8,7 +8,9 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemArmor;
 import net.minecraft.item.ItemFood;
 import net.minecraft.item.ItemPickaxe;
+import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.common.util.EnumHelper;
+import net.minecraftforge.fml.common.FMLCommonHandler;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.registry.GameData;
 import net.minecraftforge.fml.common.registry.GameRegistry;
@@ -69,10 +71,31 @@ public class ItemLoader
         GameRegistry.registerItem(item, name);
     }
 
+    @SuppressWarnings("unused")
+    private static void registerModelVariant(Item item, String... names)
+    {
+        if (FMLCommonHandler.instance().getSide().isClient())
+        {
+            int i = names.length;
+            while (--i >= 0)
+            {
+                names[i] = FMLTutor.MODID + ":" + names[i];
+            }
+            ModelLoader.addVariantName(item, names);
+        }
+    }
+
     @SideOnly(Side.CLIENT)
     private static void registerRender(Item item)
     {
         Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(item, 0,
                 new ModelResourceLocation(GameData.getItemRegistry().getNameForObject(item).toString(), "inventory"));
+    }
+
+    @SideOnly(Side.CLIENT)
+    private static void registerRender(Item item, int metadata, String name)
+    {
+        Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(item, metadata,
+                new ModelResourceLocation(FMLTutor.MODID + ":" + name, "inventory"));
     }
 }
