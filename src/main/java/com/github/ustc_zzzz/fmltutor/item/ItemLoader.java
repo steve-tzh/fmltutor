@@ -8,7 +8,9 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemArmor;
 import net.minecraft.item.ItemFood;
 import net.minecraft.item.ItemPickaxe;
+import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.common.util.EnumHelper;
+import net.minecraftforge.fml.common.FMLCommonHandler;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.registry.GameData;
 import net.minecraftforge.fml.common.registry.GameRegistry;
@@ -67,6 +69,26 @@ public class ItemLoader
     private static void register(Item item, String name)
     {
         GameRegistry.registerItem(item, name);
+    }
+
+    @SideOnly(Side.CLIENT)
+    private static void registerModelVariant(Item item, String... names)
+    {
+        if (FMLCommonHandler.instance().getSide().isClient())
+        {
+            for (int i = names.length - 1; i >= 0; --i)
+            {
+                names[i] = FMLTutor.MODID + ":" + names[i];
+            }
+            ModelLoader.addVariantName(item, names);
+        }
+    }
+
+    @SideOnly(Side.CLIENT)
+    private static void registerRender(Item item, int meta, String name)
+    {
+        Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(item, meta,
+                new ModelResourceLocation(FMLTutor.MODID + ":" + name, "inventory"));
     }
 
     @SideOnly(Side.CLIENT)

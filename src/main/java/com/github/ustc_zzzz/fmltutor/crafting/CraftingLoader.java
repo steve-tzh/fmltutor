@@ -54,6 +54,14 @@ public class CraftingLoader
         {
                 "# #", "# #", '#', "dustRedstone"
         }));
+        GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(BlockLoader.metalFurnace, 1, 0), new Object[]
+        {
+                "###", "# #", "###", '#', "blockIron"
+        }));
+        GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(BlockLoader.metalFurnace, 1, 8), new Object[]
+        {
+                "###", "# #", "###", '#', "blockGold"
+        }));
         GameRegistry.addShapelessRecipe(new ItemStack(Blocks.vine, 4), BlockLoader.grassBlock);
     }
 
